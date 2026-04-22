@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twagirumukiza Innocent — Totems</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Montserrat:wght@200;300;400&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ee;
+    --cream: #ede8e0;
+    --grey: #888880;
+    --accent: #c8b8a2;
+    --purple: #8b6fa0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 8vw, 110px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: 0.1em;
+    color: var(--grey);
+    margin-bottom: 48px;
+  }
+
+  .hero-desc {
+    max-width: 420px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--accent);
+    border-left: 1px solid var(--grey);
+    padding-left: 24px;
+    margin-bottom: 60px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+
+  .hero-cta:hover { gap: 28px; }
+
+  .hero-cta::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--white);
+    transition: width 0.3s;
+  }
+
+  .hero-cta:hover::after { width: 72px; }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+    opacity: 0.85;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.12); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 40%);
+    z-index: 1;
+  }
+
+  .hero-counter {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: difference;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 0.5; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 60px;
+    margin: 80px 0 60px;
+  }
+
+  .section-divider::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .section-divider-label {
+    font-size: 9px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* ── GALLERY GRID ── */
+  #oeuvres {
+    padding: 0 40px 120px;
+  }
+
+  .gallery-intro {
+    max-width: 600px;
+    margin: 0 60px 80px;
+  }
+
+  .gallery-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 56px);
+    margin-bottom: 20px;
+  }
+
+  .gallery-intro p {
+    font-size: 13px;
+    line-height: 2;
+    color: var(--grey);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/5;
+    background: #111;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%);
+    transition: transform 0.7s ease, filter 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+  }
+
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+  .gallery-item-info {
+    transform: translateY(8px);
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover .gallery-item-info { transform: translateY(0); }
+
+  .gallery-item-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1;
+  }
+
+  .gallery-item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--white);
+  }
+
+  /* Wide items */
+  .gallery-item.wide { grid-column: span 2; aspect-ratio: 6/5; }
+  .gallery-item.tall { grid-row: span 2; aspect-ratio: 3/10; }
+
+  /* ── FEATURED ── */
+  #selected {
+    padding: 0 0 120px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+  }
+
+  .featured-image {
+    position: relative;
+    overflow: hidden;
+    background: #0f0f0f;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.9;
+  }
+
+  .featured-content {
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .featured-tag {
+    font-size: 9px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 32px;
+  }
+
+  .featured-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .featured-body {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--grey);
+    max-width: 460px;
+    margin-bottom: 48px;
+  }
+
+  .featured-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 40px;
+  }
+
+  .detail-item label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 8px;
+  }
+
+  .detail-item span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  /* ── ABOUT ── */
+  #artiste {
+    padding: 80px 60px 120px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .about-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    line-height: 0.9;
+    color: rgba(255,255,255,0.05);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+  }
+
+  .about-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 3.5vw, 52px);
+    margin-bottom: 32px;
+  }
+
+  .about-content h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 2.2;
+    color: var(--grey);
+    margin-bottom: 24px;
+    max-width: 680px;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat-item {
+    text-align: left;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  /* ── STRIP ── */
+  .strip-gallery {
+    display: flex;
+    gap: 3px;
+    overflow: hidden;
+    height: 260px;
+    margin-bottom: 3px;
+  }
+
+  .strip-gallery img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(30%);
+    transition: filter 0.4s, transform 0.4s;
+    flex-shrink: 0;
+  }
+
+  .strip-gallery img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 2px;
+    overflow: hidden;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+  }
+
+  .lang-toggle button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .lang-toggle button.active {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+  }
+
+  .lang-toggle button:hover:not(.active) {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .lang-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.96);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 90vh;
+    max-width: 90vw;
+  }
+
+  .lightbox img {
+    max-height: 90vh;
+    max-width: 90vw;
+    object-fit: contain;
+    filter: none;
+    display: block;
+    animation: lightboxIn 0.3s ease;
+  }
+
+  @keyframes lightboxIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--grey);
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    padding: 8px 0;
+  }
+
+  .lightbox-close:hover { color: var(--white); }
+
+  .lightbox-close-x {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .lightbox-close:hover .lightbox-close-x {
+    border-color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    cursor: zoom-out;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ footer { padding: 80px 60px; border-top: 1px solid #222; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+  .social-links { display: flex; gap: 40px; }
+  .social-links a { transition: 0.3s; }
+  .social-links img { width: 28px; height: 28px; filter: invert(1); }
+  .social-links a:hover { opacity: 0.6; transform: translateY(-3px); }
+  .footer-copy { font-size: 10px; letter-spacing: 0.2em; color: var(--grey); text-transform: uppercase; }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--grey);
+    letter-spacing: 0.2em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero-left { padding: 120px 24px 60px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 2; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .featured-image { height: 50vh; }
+    #artiste { grid-template-columns: 1fr; padding: 60px 24px; }
+    .about-label { writing-mode: horizontal-tb; font-size: 48px; }
+    .section-divider { padding: 0 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 24px; }
+    .strip-gallery { height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Twagirumukiza</div>
+  <ul class="nav-links">
+    <li><a href="#oeuvres" data-fr="Œuvres" data-en="Works" data-es="Obras" data-zh="作品">Œuvres</a></li>
+    <li><a href="#selected" data-fr="Série" data-en="Series" data-es="Serie" data-zh="系列">Série</a></li>
+    <li><a href="#artiste" data-fr="Artiste" data-en="Artist" data-es="Artista" data-zh="艺术家">Artiste</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+    <div class="lang-sep"></div>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+    <div class="lang-sep"></div>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+    <div class="lang-sep"></div>
+    <button id="btn-zh" onclick="setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-label" data-fr="Art contemporain africain" data-en="Contemporary African Art" data-es="Arte contemporáneo africano" data-zh="非洲当代艺术">Art contemporain africain</p>
+    <h1 class="hero-title">
+      <em>Totems</em>
+    </h1>
+    <p class="hero-subtitle">Twagirumukiza</p>
+    <p class="hero-desc" data-fr="Sculptures murales en bois taillé et plâtre — une exploration des formes ancestrales, des motifs géométriques et de la figure humaine sublimée. Une œuvre entre mémoire collective et langage universel." data-en="Wall sculptures in carved wood and plaster — an exploration of ancestral forms, geometric patterns and the sublimated human figure. A work between collective memory and universal language." data-es="Esculturas murales en madera tallada y yeso — una exploración de las formas ancestrales, los motivos geométricos y la figura humana sublimada. Una obra entre memoria colectiva y lenguaje universal." data-zh="木雕和石膏壁面雕塑——探索祖先形式、几何图案与升华的人体。一部介于集体记忆与普世语言之间的作品。">
+      Sculptures murales en bois taillé et plâtre — une exploration des formes ancestrales,
+      des motifs géométriques et de la figure humaine sublimée. Une œuvre entre mémoire
+      collective et langage universel.
+    </p>
+    <a href="#oeuvres" class="hero-cta" data-fr="Découvrir les œuvres" data-en="Discover the works" data-es="Descubrir las obras" data-zh="探索作品">Découvrir les œuvres</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-overlay"></div>
+    <img src="images/totem-15.jpg" alt="Totems — vue d'ensemble" />
+    <div class="hero-counter">15</div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip-gallery">
+  <img src="images/totem-02.jpg" alt="">
+  <img src="images/totem-04.jpg" alt="">
+  <img src="images/totem-05.jpg" alt="">
+  <img src="images/totem-07.jpg" alt="">
+  <img src="images/totem-06.jpg" alt="">
+  <img src="images/totem-08.jpg" alt="">
+  <img src="images/totem-10.jpg" alt="">
+</div>
+
+<!-- GALLERY -->
+<section id="oeuvres">
+  <div class="section-divider fade-in">
+    <span class="section-divider-label" data-fr="Collection complète" data-en="Full collection" data-es="Colección completa" data-zh="完整系列">Collection complète</span>
+  </div>
+
+  <div class="gallery-intro fade-in">
+    <h2>Les <em style="font-style:italic; color:var(--accent)">Totems</em></h2>
+    <p data-fr="Chaque pièce est un dialogue entre la matière et le signe — entre la verticalité du totem et la richesse des motifs hérités d'une tradition visuelle profonde. Bois, plâtre, pigment." data-en="Each piece is a dialogue between matter and sign — between the verticality of the totem and the richness of patterns inherited from a deep visual tradition. Wood, plaster, pigment." data-es="Cada pieza es un diálogo entre la materia y el signo — entre la verticalidad del totem y la riqueza de los motivos heredados de una profunda tradición visual. Madera, yeso, pigmento." data-zh="每件作品都是物质与符号之间的对话——图腾的垂直性与深厚视觉传统所传承的纹样之间的对话。木材、石膏、颜料。">Chaque pièce est un dialogue entre la matière et le signe — entre la verticalité du totem
+    et la richesse des motifs hérités d'une tradition visuelle profonde. Bois, plâtre, pigment.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item wide fade-in" onclick="openLightbox('totem-10.jpg')">
+      <img src="images/totem-10.jpg" alt="Vue d'ensemble installation">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">01</div>
+          <div class="gallery-item-title">Vue d'installation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-03.jpg')">
+      <img src="images/totem-02.jpg" alt="Totem géométrique">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">03</div>
+          <div class="gallery-item-title">Cosmogramme</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-03.jpg')">
+      <img src="images/totem-03.jpg" alt="Bras-totem violet">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">11</div>
+          <div class="gallery-item-title">Mains levées</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-02.jpg')">
+      <img src="images/totem-02.jpg" alt="Totem à motifs diamants">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">02</div>
+          <div class="gallery-item-title">Losanges</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-04.jpg')">
+      <img src="images/totem-04.jpg" alt="Figures humaines totems">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">04</div>
+          <div class="gallery-item-title">Duo — Cœur</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-05.jpg')">
+      <img src="images/totem-05.jpg" alt="Totem entrelacs circulaires">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">05</div>
+          <div class="gallery-item-title">Entrelacs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item wide fade-in" onclick="openLightbox('totem-12.jpg')">
+      <img src="images/totem-12.jpg" alt="Vue galerie">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">12</div>
+          <div class="gallery-item-title">Vue galerie</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-06.jpg')">
+      <img src="images/totem-06.jpg" alt="Totems à arabesques">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">06</div>
+          <div class="gallery-item-title">Arabesques</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-07.jpg')">
+      <img src="images/totem-07.jpg" alt="Figures squelettes">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">07</div>
+          <div class="gallery-item-title">Corps-colonne</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-08.jpg')">
+      <img src="images/totem-08.jpg" alt="Totems hiboux">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">08</div>
+          <div class="gallery-item-title">Chouettes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-09.jpg')">
+      <img src="images/totem-09.jpg" alt="Paire de totems">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">09</div>
+          <div class="gallery-item-title">Miroir</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-in" onclick="openLightbox('totem-10.jpg')">
+      <img src="images/totem-10.jpg" alt="Totem solitaire">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">10</div>
+          <div class="gallery-item-title">Spirale</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item wide fade-in" onclick="openLightbox('totem-13.jpg')">
+      <img src="images/totem-13.jpg" alt="Vue atelier">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">13</div>
+          <div class="gallery-item-title">Vue atelier</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item wide fade-in" onclick="openLightbox('totem-14.jpg')">
+      <img src="images/totem-14.jpg" alt="Installation in situ">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-info">
+          <div class="gallery-item-num">14</div>
+          <div class="gallery-item-title">In situ</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section id="selected">
+  <div class="section-divider fade-in">
+    <span class="section-divider-label" data-fr="Œuvre mise en avant" data-en="Featured work" data-es="Obra destacada" data-zh="精选作品">Œuvre mise en avant</span>
+  </div>
+  <div class="featured-grid">
+    <div class="featured-image">
+      <img src="images/totem-04.jpg" alt="Duo Cœur">
+    </div>
+    <div class="featured-content fade-in">
+      <p class="featured-tag" data-fr="Série Figures — Pièce principale" data-en="Figure Series — Main piece" data-es="Serie Figuras — Pieza principal" data-zh="人形系列 — 主要作品">Série Figures — Pièce principale</p>
+      <h2 class="featured-title">Duo<br><em style="font-style:italic; color:var(--accent)">Cœur &amp; Présence</em></h2>
+      <p class="featured-body" data-fr="Deux figures anthropomorphes se font face, sculptées dans une blancheur totale. Le cœur stylisé au sommet — symbole d'amour, d'âme, de protection — domine un corps ajouré dont les motifs géométriques évoquent le tressage, la vie, l'entrelacement des êtres. Pièce emblématique de la série Totems." data-en="Two anthropomorphic figures face each other, sculpted in total whiteness. The stylized heart at the top — a symbol of love, soul, protection — dominates an open-work body whose geometric patterns evoke weaving, life, the intertwining of beings. Iconic piece of the Totems series." data-es="Dos figuras antropomorfas se enfrentan, esculpidas en una blancura total. El corazón estilizado en la cima — símbolo de amor, alma, protección — domina un cuerpo calado cuyos motivos geométricos evocan el tejido, la vida, el entrelazamiento de los seres. Pieza emblemática de la serie Totems." data-zh="两个拟人化的形象相对而立，以纯白色雕刻而成。顶部程式化的心形——爱、灵魂与守护的象征——统领着一个镂空的躯体，其几何纹样唤起编织、生命与众生交织的意象。图腾系列的标志性作品。">
+        Deux figures anthropomorphes se font face, sculptées dans une blancheur totale.
+        Le cœur stylisé au sommet — symbole d'amour, d'âme, de protection — domine
+        un corps ajouré dont les motifs géométriques évoquent le tressage, la vie,
+        l'entrelacement des êtres. Pièce emblématique de la série Totems.
+      </p>
+      <div class="featured-details">
+        <div class="detail-item">
+          <label data-fr="Matière" data-en="Material" data-es="Material" data-zh="材质">Matière</label>
+          <span data-fr="Bois taillé, plâtre" data-en="Carved wood, plaster" data-es="Madera tallada, yeso" data-zh="雕刻木材、石膏">Bois taillé, plâtre</span>
+        </div>
+        <div class="detail-item">
+          <label data-fr="Finition" data-en="Finish" data-es="Acabado" data-zh="饰面">Finition</label>
+          <span data-fr="Peint en blanc" data-en="Painted white" data-es="Pintado en blanco" data-zh="白色涂漆">Peint en blanc</span>
+        </div>
+        <div class="detail-item">
+          <label data-fr="Format" data-en="Format" data-es="Formato" data-zh="形式">Format</label>
+          <span data-fr="Sculpture murale" data-en="Wall sculpture" data-es="Escultura mural" data-zh="壁面雕塑">Sculpture murale</span>
+        </div>
+        <div class="detail-item">
+          <label data-fr="Série" data-en="Series" data-es="Serie" data-zh="系列">Série</label>
+          <span>Totems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="artiste">
+  <div class="about-label" data-fr="Artiste" data-en="Artist" data-es="Artista" data-zh="艺术家">Artiste</div>
+  <div class="about-content fade-in">
+    <h2>Twagirumukiza<br><em>Innocent</em></h2>
+    <p data-fr="Sculpteur et plasticien, Twagirumukiza Innocent développe depuis plusieurs années une œuvre singulière fondée sur l'exploration des formes totémiques. À travers la série Totems, il convoque la verticalité comme langage — chaque pièce est un axe entre la terre et le ciel, entre le corps et le cosmos." data-en="Sculptor and visual artist, Twagirumukiza Innocent has been developing a singular body of work for several years, grounded in the exploration of totemic forms. Through the Totems series, he invokes verticality as language — each piece is an axis between earth and sky, between body and cosmos." data-es="Escultor y artista plástico, Twagirumukiza Innocent desarrolla desde hace varios años una obra singular basada en la exploración de las formas totémicas. A través de la serie Totems, convoca la verticalidad como lenguaje — cada pieza es un eje entre la tierra y el cielo, entre el cuerpo y el cosmos." data-zh="雕塑家与视觉艺术家Twagirumukiza Innocent多年来持续发展着一种以图腾形式探索为核心的独特创作。通过《图腾》系列，他将垂直性召唤为语言——每件作品都是连接天地、身体与宇宙的轴线。">
+      Sculpteur et plasticien, Twagirumukiza Innocent développe depuis plusieurs années
+      une œuvre singulière fondée sur l'exploration des formes totémiques. À travers
+      la série <em style="color:var(--accent)">Totems</em>, il convoque la verticalité
+      comme langage — chaque pièce est un axe entre la terre et le ciel, entre le
+      corps et le cosmos.
+    </p>
+    <p data-fr="Ses sculptures murales mêlent motifs géométriques d'origine traditionnelle africaine — losanges, entrelacs, spirales, rosaces — à une figuration épurée qui emprunte autant à l'abstraction qu'à la statuaire ancestrale. Le blanc omniprésent n'est pas une absence de couleur : c'est une lumière intérieure, un choix radical de mise en forme." data-en="His wall sculptures blend geometric patterns of traditional African origin — diamonds, interlacings, spirals, rosettes — with a pared-down figuration that borrows as much from abstraction as from ancestral sculpture. The omnipresent white is not an absence of color: it is an inner light, a radical formal choice." data-es="Sus esculturas murales combinan motivos geométricos de origen tradicional africano — rombos, entrelazados, espirales, rosetones — con una figuración depurada que toma tanto de la abstracción como de la estatuaria ancestral. El blanco omnipresente no es una ausencia de color: es una luz interior, una elección formal radical." data-zh="他的壁面雕塑将非洲传统几何纹样——菱形、交织图案、螺旋、玫瑰花饰——与简洁的造型融合，既借鉴抽象艺术，又承袭祖先雕塑传统。无处不在的白色并非色彩的缺席，而是一种内在的光，一种彻底的形式选择。">
+      Ses sculptures murales mêlent motifs géométriques d'origine traditionnelle africaine —
+      losanges, entrelacs, spirales, rosaces — à une figuration épurée qui emprunte
+      autant à l'abstraction qu'à la statuaire ancestrale. Le blanc omniprésent n'est
+      pas une absence de couleur : c'est une lumière intérieure, un choix radical
+      de mise en forme.
+    </p>
+    <p data-fr="Les œuvres ont été exposées dans plusieurs espaces, des galeries aux couloirs institutionnels, créant à chaque fois un dialogue entre architecture et sculpture, entre le mur et le corps érigé." data-en="The works have been exhibited in several spaces, from galleries to institutional corridors, each time creating a dialogue between architecture and sculpture, between the wall and the upright body." data-es="Las obras han sido expuestas en varios espacios, desde galerías hasta pasillos institucionales, creando cada vez un diálogo entre arquitectura y escultura, entre el muro y el cuerpo erguido." data-zh="这些作品曾在多个空间展出，从画廊到机构走廊，每次都在建筑与雕塑之间、墙体与直立身体之间创造出一种对话。">
+      Les œuvres ont été exposées dans plusieurs espaces, des galeries aux couloirs
+      institutionnels, créant à chaque fois un dialogue entre architecture et sculpture,
+      entre le mur et le corps érigé.
+    </p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-number">15</div>
+        <div class="stat-label" data-fr="Pièces présentées" data-en="Works exhibited" data-es="Obras expuestas" data-zh="展出作品">Pièces présentées</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">∞</div>
+        <div class="stat-label" data-fr="Motifs possibles" data-en="Possible patterns" data-es="Motivos posibles" data-zh="可能的纹样">Motifs possibles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">I</div>
+        <div class="stat-label" data-fr="Série Totems" data-en="Totems Series" data-es="Serie Totems" data-zh="图腾系列">Série Totems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Twagirumukiza Innocent — Totems</div>
+  <div class="footer-copy" data-fr="© 2026 — Tous droits réservés" data-en="© 2026 — All rights reserved" data-es="© 2026 — Todos los derechos reservados" data-zh="© 2026 — 版权所有">© 2026 — Tous droits réservés</div>
+<div class="social-links">
+    <a href="https://www.saatchiart.com/twagirumukiza?srsltid=AfmBOor2VGy1E9KFWrdwgjRjPujX2b2tmLdoYIoI1s_g3N49_8QH4ugf" target="_blank" title="Saatchi Art">
+      <img src="images/saatchi.png" alt="Saatchi"> 
+    </a>
+    <a href="https://fr.pinterest.com/innocenttwagirumukiza/" target="_blank" title="Pinterest">
+      <img src="images/pinterest.png" alt="Pinterest"> 
+    </a>
+    <a href="https://www.instagram.com/inno_twa/" target="_blank" title="Instagram">
+      <img src="images/instagram.png" alt="Instagram"> 
+    </a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <div class="lightbox-close" onclick="closeLightbox()">
+    <span data-fr="Fermer" data-en="Close" data-es="Cerrar" data-zh="关闭">Fermer</span>
+    <span class="lightbox-close-x">✕</span>
+  </div>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  // ── LIGHTBOX ──
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = 'images/' + src;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── LANGUAGE TOGGLE ──
+  let currentLang = 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+
+    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text && el.children.length === 0) {
+        el.textContent = text;
+      } else if (text && !el.querySelector('em, strong')) {
+        el.textContent = text;
+      }
+    });
+
+    document.documentElement.lang = lang;
+  }
+
+  // ── SCROLL FADE-IN ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        const children = e.target.querySelectorAll('.fade-in');
+        children.forEach((c, i) => {
+          setTimeout(() => c.classList.add('visible'), i * 100);
+        });
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Gallery stagger on scroll
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.gallery-item').forEach(el => {
+    el.classList.add('fade-in');
+    galleryObserver.observe(el);
+  });
+
+  // Gallery items open lightbox using the img src
+  document.querySelectorAll('.gallery-item').forEach(el => {
+    el.removeAttribute('onclick');
+    const img = el.querySelector('img');
+    if (img) {
+      el.style.cursor = 'zoom-in';
+      el.addEventListener('click', () => {
+        openLightbox(img.getAttribute('src').split('/').pop());
+      });
+    }
+  });
+
+  // Strip images also open lightbox
+  document.querySelectorAll('.strip-gallery img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      openLightbox(img.getAttribute('src').split('/').pop());
+    });
+  });
+</script>
+</body>
+</html>
